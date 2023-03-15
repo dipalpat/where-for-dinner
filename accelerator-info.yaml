@@ -1,0 +1,35 @@
+id: 29cf7a61-01da-4f7a-a18f-15b90e1fdf6a
+timestamp: 2023-03-15T12:03:15Z
+username: guest
+source: TAP-GUI
+accelerator:
+  name: where-for-dinner
+  source:
+    image: gcr.io/pa-dpatel/tap15-37@sha256:eecfb2d3af813e9e79b5ab0b1d08ee682de95b2fc96a9b910bdbfabafa24d09e
+fragments:
+  - name: build-wrapper-maven
+    source:
+      image: gcr.io/pa-dpatel/tap15-37@sha256:195a3ca6585fa91c41292584a19c2807c72ecdf986ce860a7147451e89d467d4
+  - name: tap-workload
+    source:
+      image: gcr.io/pa-dpatel/tap15-37@sha256:dbf0dedb6848ad8a7704c1c19465a1ddae9039b0e63c1dd0df3e2ed9cbda6093
+options:
+  cacheName: cache-where-for-dinner
+  cacheType: redisCache
+  dbName: db-where-for-dinner
+  dbType: mysql
+  dynamicCache: true
+  dynamicCacheClass: cache-crossplane-where-for-dinner
+  dynamicDBClass: db-crossplane-where-for-dinner
+  dynamicDatabase: true
+  dynamicMsgBroker: true
+  dynamicMsgBrokerClass: msgbroker-crossplane-where-for-dinner
+  enableCloudEvents: false
+  enableSecurity: false
+  includeBuildToolWrapper: true
+  msgBrokerType: rabbitmq
+  msgbrokerName: msgbroker-where-for-dinner
+  numRabbitMQClusterNodes: 1
+  projectName: where-for-dinner
+  serviceNamespace: service-instances
+  workloadNamespace: dev-space
